@@ -82,18 +82,28 @@ Fully qualified XCN class name: <b><i>not_dns.xcn.Tree</i></b>
 Examples;
 
 ```
-# Without the Tree class name
+# Without the Tree class names
 < foo=< car="bar">>
-# With the Tree relative class name
-<Tree bar=< car="foo">>
-# With the Tree fully qualified class name
-<not_dns.xcn.Tree bar=< car="foo">>
+# With the Tree relative class names
+<Tree bar=<Tree car="foo">>
+# With the Tree fully qualified class names
+<not_dns.xcn.Tree bar=<not_dns.xcn.Tree car="foo">>
 ```
 
 ##### XCN Table
 
+XCN Tables MUST NOT contain simple fields or complex fields (i.e. other XCN Trees and Tables).   Conceptually, XCN Trees extend XCN Objects.  The XCN Table start tag MUST be immediately followed by a UNIX Line Feed.  XCN Tables MUST start with a table-header row which MUST consist of either fieldLables or strings.
 
+Example;
 
+```
+<Table
+abc col2   "Col 3" treeRef
+t   "me"   123     1
+f   "you"  345.3   2
+f   "them" 99.0    3
+>
+```
 
 # Commentary
 
