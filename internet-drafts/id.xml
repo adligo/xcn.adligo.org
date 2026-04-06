@@ -1,0 +1,440 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rfc version="3" ipr="trust200902" docName="draft-morgan-ten64-00"
+     submissionType="IETF" category="info" xml:lang="en">
+  <front>
+    <title abbrev="XCM">eXtensable Classification Notation</title>
+
+    <author initials="S." surname="Morgan" fullname="Scott Morgan">
+      <organization>Adligo Inc.</organization>
+      <address>
+        <email>scott@adligo.com</email>
+        <uri>https://github.com/adligo/xcn.adligo.org</uri>
+      </address>
+    </author>
+
+    <date year="2026" month="April" day="1"/>
+
+    <area>Applications and Real-Time</area>
+    <workgroup>Internet Engineering Task Force</workgroup>
+
+    <abstract>
+    </abstract>
+  </front>
+
+  <middle>
+    <section anchor="intro">
+      <name>Introduction</name>
+
+      <section anchor="requirements">
+        <name>Requirements Language</name>
+        <t>The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT",
+        "SHOULD", "SHOULD NOT", "RECOMMENDED", "NOT RECOMMENDED", "MAY", and
+        "OPTIONAL" in this document are to be interpreted as described in
+        BCP 14 <xref target="ietf-keywords-rfc-2119" format="none" sectionFormat="bare">
+        RFC2119</xref> <xref target="ietf-uppercase-rfc-8174" format="none" sectionFormat="bare">
+        RFC8174</xref> when, and
+        only when, they appear in all capitals, as shown here.</t>
+        <t>This document aligns with the formal IETF standardization
+        procedures defined by the Internet Standards Process in BCP 9
+        <xref target="ietf-standards-process-rfc-2026" format="none" sectionFormat="bare">
+        RFC2026</xref>.</t>
+      </section>
+    </section>
+
+
+  </middle>
+
+  <back>
+    <references>
+      <name>Normative References</name>
+
+      <reference anchor="analog-wikipedia" target="https://en.wikipedia.org/wiki/Analog_device">
+        <front>
+          <title>Analog device</title>
+          <author>
+            <organization>Wikipedia contributors</organization>
+          </author>
+          <date year="2026" month="April"/>
+        </front>
+        <seriesInfo name="Encyclopedia" value="Wikipedia, The Free Encyclopedia"/>
+      </reference>
+
+      <reference anchor="base-10">
+        <front>
+          <title>The Art of Computer Programming, Volume 2: Seminumerical Algorithms (3rd Edition)</title>
+          <author initials="D.E." surname="Knuth" fullname="Donald E. Knuth">
+            <organization/>
+          </author>
+          <date year="1997"/>
+        </front>
+        <seriesInfo name="Publisher" value="Addison-Wesley"/>
+        <format type="TXT" target="Section 4.1: Positional Number Systems"/>
+      </reference>
+
+      <reference anchor="bigdecimal-mclaughlin" target="https://mikemcl.github.io/decimal.js/">
+        <front>
+          <title>decimal.js - An arbitrary-precision Decimal type for JavaScript</title>
+          <author initials="M." surname="Mclaughlin" fullname="Michael Mclaughlin">
+            <organization/>
+          </author>
+          <date/>
+        </front>
+      </reference>
+
+      <reference anchor="bigdecimal-java-oracle" target="https://docs.oracle.com/en/java/javase/25/docs/api/java.base/java/math/BigDecimal.html">
+        <front>
+          <title>Class BigDecimal (Java SE 25 &amp; JDK 25)</title>
+          <author>
+            <organization>Oracle Corporation</organization>
+          </author>
+          <date year="2025" month="September"/>
+        </front>
+        <seriesInfo name="Java Platform, Standard Edition API Specification" value="Version 25"/>
+      </reference>
+
+      <reference anchor="binary-number-systems-wikipedia" target="https://en.wikipedia.org/wiki/Binary_number">
+        <front>
+          <title>Binary number</title>
+          <author>
+            <organization>Wikipedia contributors</organization>
+          </author>
+          <date year="2026" month="April"/>
+        </front>
+        <seriesInfo name="Encyclopedia" value="Wikipedia, The Free Encyclopedia"/>
+      </reference>
+
+      <reference anchor="compart" target="https://www.compart.com/en/unicode/U+0305">
+        <front>
+          <title>Unicode Character “̅” (U+0305)</title>
+          <author>
+            <organization>Compart</organization>
+          </author>
+          <date year="2026" month="April"/>
+        </front>
+        <seriesInfo name="Website" value="Compart"/>
+      </reference>
+
+      <reference anchor="ecma-script" target="https://tc39.es/ecma262/">
+        <front>
+          <title>ECMAScript 2025 Language Specification</title>
+          <author>
+            <organization>Ecma International</organization>
+          </author>
+          <date year="2025" month="June"/>
+        </front>
+        <seriesInfo name="Standard" value="ECMA-262"/>
+        <seriesInfo name="Edition" value="16th"/>
+      </reference>
+    
+      <reference anchor="endianness-wikipedia" target="https://en.wikipedia.org/wiki/Endianness">
+        <front>
+          <title>Endianness</title>
+          <author>
+            <organization>Wikipedia contributors</organization>
+          </author>
+          <date year="2026" month="April"/>
+        </front>
+        <seriesInfo name="Encyclopedia" value="Wikipedia, The Free Encyclopedia"/>
+      </reference>
+
+      <reference anchor="decimal-conversion-cpp" target="https://en.cppreference.com/w/cpp/types/numeric_limits/max_digits10">
+        <front>
+          <title>std::numeric_limits&lt;T&gt;::max_digits10</title>
+          <author>
+            <organization>cppreference.com</organization>
+          </author>
+          <date year="2026" month="April" day="5"/>
+        </front>
+      </reference>
+
+      <reference anchor="decimals-wikipedia" target="https://en.wikipedia.org/wiki/Decimal">
+        <front>
+          <title>Decimal</title>
+          <author>
+            <organization>Wikipedia contributors</organization>
+          </author>
+          <date year="2026" month="April"/>
+        </front>
+        <seriesInfo name="Encyclopedia" value="Wikipedia, The Free Encyclopedia"/>
+      </reference>
+
+      <reference anchor="discrete-system-wikipedia" target="https://en.wikipedia.org/wiki/Discrete_system">
+        <front>
+          <title>Discrete system</title>
+          <author>
+            <organization>Wikipedia contributors</organization>
+          </author>
+          <date year="2026" month="April"/>
+        </front>
+        <seriesInfo name="Encyclopedia" value="Wikipedia, The Free Encyclopedia"/>
+      </reference>
+
+      <reference anchor="ecmascript-2025" target="https://tc39.es/ecma262/">
+        <front>
+          <title>ECMAScript 2025 Language Specification</title>
+          <author>
+            <organization>Ecma International</organization>
+          </author>
+          <date year="2025" month="June"/>
+        </front>
+        <seriesInfo name="Standard" value="ECMA-262"/>
+        <seriesInfo name="Edition" value="16th"/>
+      </reference>
+
+      <reference anchor="fractions-wikipedia" target="https://en.wikipedia.org/wiki/Fraction">
+        <front>
+          <title>Fraction</title>
+          <author>
+            <organization>Wikipedia contributors</organization>
+          </author>
+          <date year="2026" month="April"/>
+        </front>
+        <seriesInfo name="Encyclopedia" value="Wikipedia, The Free Encyclopedia"/>
+      </reference>
+
+
+      <reference anchor="google-gemini" target="https://www.emergentmind.com/topics/google-gemini">
+        <front>
+          <title>Google Gemini: Scalable Multimodal Models</title>
+          <author>
+            <organization>Emergent Mind</organization>
+          </author>
+          <date day="14" month="January" year="2026"/>
+        </front>
+        <seriesInfo name="Website" value="Emergent Mind"/>
+      </reference>
+
+      <reference anchor="google-gemini-deep-research" target="https://i10x.ai/news/google-gemini-deep-research-analysis">
+        <front>
+          <title>Google Gemini Deep Research: AI for Complex Tasks</title>
+          <author>
+            <organization>i10X</organization>
+          </author>
+          <date day="16" month="December" year="2025"/>
+        </front>
+        <seriesInfo name="Website" value="i10X"/>
+      </reference>
+
+      <reference anchor="ieee-754-wikipedia" target="https://en.wikipedia.org/wiki/IEEE_754">
+        <front>
+          <title>IEEE 754</title>
+          <author>
+            <organization>Wikipedia contributors</organization>
+          </author>
+          <date year="2026" month="April"/>
+        </front>
+        <seriesInfo name="Encyclopedia" value="Wikipedia, The Free Encyclopedia"/>
+      </reference>
+
+      <reference anchor="ietf-keywords-rfc-2119" target="https://www.rfc-editor.org/info/rfc2119">
+        <front>
+          <title>Key words for use in RFCs to Indicate Requirement Levels</title>
+          <author initials="S." surname="Bradner" fullname="S. Bradner">
+            <organization/>
+          </author>
+          <date year="1997" month="March"/>
+        </front>
+        <seriesInfo name="BCP" value="14"/>
+        <seriesInfo name="RFC" value="2119"/>
+        <seriesInfo name="DOI" value="10.17487/RFC2119"/>
+      </reference>
+
+      <reference anchor="ietf-standards-process-rfc-2026" target="https://www.rfc-editor.org/info/rfc2026">
+        <front>
+          <title>The Internet Standards Process -- Revision 3</title>
+          <author initials="S." surname="Bradner" fullname="S. Bradner">
+            <organization/>
+          </author>
+          <date year="1996" month="October"/>
+        </front>
+        <seriesInfo name="BCP" value="9"/>
+        <seriesInfo name="RFC" value="2026"/>
+        <seriesInfo name="DOI" value="10.17487/RFC2026"/>
+      </reference>
+
+      <reference anchor="ietf-uppercase-rfc-8174" target="https://www.rfc-editor.org/info/rfc8174">
+        <front>
+          <title>Ambiguity of Uppercase vs Lowercase in RFC 2119 Key Words</title>
+          <author initials="B." surname="Leiba" fullname="B. Leiba">
+            <organization/>
+          </author>
+          <date year="2017" month="May"/>
+        </front>
+        <seriesInfo name="BCP" value="14"/>
+        <seriesInfo name="RFC" value="8174"/>
+        <seriesInfo name="DOI" value="10.17487/RFC8174"/>
+      </reference>
+
+      <reference anchor="integers-wikipedia" target="https://en.wikipedia.org/wiki/Integer">
+        <front>
+          <title>Integer</title>
+          <author>
+            <organization>Wikipedia contributors</organization>
+          </author>
+          <date year="2026" month="April"/>
+        </front>
+        <seriesInfo name="Encyclopedia" value="Wikipedia, The Free Encyclopedia"/>
+      </reference>
+
+      <reference anchor="integral-wikipedia" target="https://en.wikipedia.org/wiki/Integral">
+        <front>
+          <title>Integral</title>
+          <author>
+            <organization>Wikipedia contributors</organization>
+          </author>
+          <date year="2026" month="April"/>
+        </front>
+        <seriesInfo name="Encyclopedia" value="Wikipedia, The Free Encyclopedia"/>
+      </reference>
+
+      <reference anchor="java-language-specification" target="https://docs.oracle.com/javase/specs/jls/se21/html/index.html">
+        <front>
+          <title>The Java Language Specification, Java SE 21 Edition</title>
+          <author initials="J." surname="Gosling" fullname="James Gosling"/>
+          <author initials="B." surname="Joy" fullname="Bill Joy"/>
+          <author initials="G." surname="Steele" fullname="Guy Steele"/>
+          <author initials="G." surname="Bracha" fullname="Gilad Bracha"/>
+          <author initials="A." surname="Buckley" fullname="Alex Buckley"/>
+          <author initials="D." surname="Smith" fullname="Daniel Smith"/>
+          <author initials="G." surname="Bierman" fullname="Gavin Bierman"/>
+          <date year="2023" month="September"/>
+        </front>
+        <seriesInfo name="Publisher" value="Oracle America, Inc."/>
+      </reference>
+
+      <reference anchor="json-rfc-8259" target="https://www.rfc-editor.org/info/rfc8259">
+        <front>
+          <title>The JavaScript Object Notation (JSON) Data Interchange Format</title>
+          <author initials="T." surname="Bray" fullname="T. Bray" role="editor">
+            <organization/>
+          </author>
+          <date year="2017" month="December"/>
+        </front>
+        <seriesInfo name="STD" value="90"/>
+        <seriesInfo name="RFC" value="8259"/>
+        <seriesInfo name="DOI" value="10.17487/RFC8259"/>
+      </reference>
+
+      <reference anchor="line-wrapping-wikipedia" target="https://en.wikipedia.org/wiki/Wrapping_(text)">
+        <front>
+          <title>Wrapping (text)</title>
+          <author>
+            <organization>Wikipedia contributors</organization>
+          </author>
+          <date year="2026" month="April"/>
+        </front>
+        <seriesInfo name="Encyclopedia" value="Wikipedia, The Free Encyclopedia"/>
+      </reference>
+
+      <reference anchor="math-international-standard" target="https://www.iso.org/standard/33632.html">
+        <front>
+          <title>Information technology -- Language independent arithmetic -- Part 1: Integer and floating point arithmetic</title>
+          <author>
+            <organization>International Organization for Standardization (ISO)</organization>
+          </author>
+          <author>
+            <organization>International Electrotechnical Commission (IEC)</organization>
+          </author>
+          <date year="2012" month="July"/>
+        </front>
+        <seriesInfo name="ISO/IEC" value="10967-1:2012"/>
+      </reference>
+
+      <reference anchor="modern-western-numeral-system" target="https://www.ietf.org/archive/id/draft-morgan-ten64-00.html#modern-western-numeral-system">
+        <front>
+          <title>Text Encoded Base 64 Numbers (Ten64): Modern Western Numeral System</title>
+          <author initials="S." surname="Morgan" fullname="Scott Morgan">
+            <organization>Adligo Inc.</organization>
+          </author>
+          <date year="2026" month="April" day="1"/>
+        </front>
+        <seriesInfo name="Internet-Draft" value="draft-morgan-ten64-00"/>
+      </reference>
+
+
+      <reference anchor="positional-number-systems-wikipedia" target="https://en.wikipedia.org/wiki/Numeral_system#Positional_systems_in_detail">
+        <front>
+          <title>Numeral system: Positional systems in detail</title>
+          <author>
+            <organization>Wikipedia contributors</organization>
+          </author>
+          <date year="2026" month="April"/>
+        </front>
+        <seriesInfo name="Encyclopedia" value="Wikipedia, The Free Encyclopedia"/>
+      </reference>
+
+      <reference anchor="ten64" target="https://www.ietf.org/archive/id/draft-morgan-ten64-00.html">
+        <front>
+          <title>Text Encoded Base 64 Numbers (Ten64)</title>
+          <author initials="S." surname="Morgan" fullname="Scott Morgan">
+            <organization>Adligo Inc.</organization>
+          </author>
+          <date year="2026" month="April" day="1"/>
+        </front>
+        <seriesInfo name="Internet-Draft" value="draft-morgan-ten64-00"/>
+      </reference>
+
+      <reference anchor="ten64-commentary" target="https://www.ietf.org/archive/id/draft-morgan-ten64-00.html#commentary">
+        <front>
+          <title>Text Encoded Base 64 Numbers (Ten64)</title>
+          <author initials="S." surname="Morgan" fullname="Scott Morgan">
+            <organization>Adligo Inc.</organization>
+          </author>
+          <date year="2026" month="April" day="1"/>
+        </front>
+        <seriesInfo name="Internet-Draft" value="draft-morgan-ten64-00"/>
+      </reference>
+
+      <reference anchor="typescript" target="https://www.typescriptlang.org/">
+        <front>
+          <title>TypeScript: Typed JavaScript at Any Scale</title>
+          <author>
+            <organization>Microsoft</organization>
+          </author>
+          <date year="2026" month="April"/>
+        </front>
+        <seriesInfo name="Website" value="TypeScript"/>
+      </reference>
+
+      <reference anchor="utf-8-rfc-3629" target="https://www.rfc-editor.org/info/rfc3629">
+        <front>
+          <title>UTF-8, a transformation format of ISO 10646</title>
+          <author initials="F." surname="Yergeau" fullname="François Yergeau"/>
+          <date year="2003" month="November"/>
+        </front>
+        <seriesInfo name="RFC" value="3629"/>
+        <seriesInfo name="STD" value="63"/>
+      </reference>
+
+      <reference anchor="xml-wc3" target="https://www.w3.org/TR/2008/REC-xml-20081126/">
+        <front>
+          <title>Extensible Markup Language (XML) 1.0 (Fifth Edition)</title>
+          <author initials="T." surname="Bray" fullname="Tim Bray" role="editor">
+            <organization/>
+          </author>
+          <author initials="J." surname="Paoli" fullname="Jean Paoli" role="editor">
+            <organization/>
+          </author>
+          <author initials="C.M." surname="Sperberg-McQueen" fullname="C. M. Sperberg-McQueen" role="editor">
+            <organization/>
+          </author>
+          <author initials="E." surname="Maler" fullname="Eve Maler" role="editor">
+            <organization/>
+          </author>
+          <author initials="F." surname="Yergeau" fullname="François Yergeau" role="editor">
+            <organization/>
+          </author>
+          <date year="2008" month="November" day="26"/>
+        </front>
+        <seriesInfo name="W3C Recommendation" value="REC-xml-20081126"/>
+      </reference>
+    </references>
+
+    <references>
+      <name>Informative References</name>
+    </references>
+
+    <section anchor="acknowledgments" numbered="false" title="Acknowledgments">
+    </section>
+  </back>
+</rfc>
