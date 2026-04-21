@@ -59,6 +59,17 @@
         <seriesInfo name="Encyclopedia" value="Wikipedia, The Free Encyclopedia"/>
       </reference>
 
+      <reference anchor="apache-http-server-configuration-files" target="https://httpd.apache.org/docs/current/configuring.html">
+        <front>
+          <title>Configuration Files - Apache HTTP Server Version 2.4</title>
+          <author>
+            <organization>The Apache Software Foundation</organization>
+          </author>
+          <date year="2026"/>
+        </front>
+        <refcontent>Apache HTTP Server Documentation</refcontent>
+      </reference>
+
       <reference anchor="base-10">
         <front>
           <title>The Art of Computer Programming, Volume 2: Seminumerical Algorithms (3rd Edition)</title>
@@ -114,27 +125,16 @@
         <seriesInfo name="Website" value="Compart"/>
       </reference>
 
-      <reference anchor="ecma-script" target="https://tc39.es/ecma262/">
+      <reference anchor="context-sensitve-grammers-automata-theory">
         <front>
-          <title>ECMAScript 2025 Language Specification</title>
-          <author>
-            <organization>Ecma International</organization>
-          </author>
-          <date year="2025" month="June"/>
+          <title>Introduction to Automata Theory, Languages, and Computation, 3rd Edition</title>
+          <author initials="J.E." surname="Hopcroft" fullname="John E. Hopcroft"/>
+          <author initials="R." surname="Motwani" fullname="Rajeev Motwani"/>
+          <author initials="J.D." surname="Ullman" fullname="Jeffrey D. Ullman"/>
+          <date year="2006"/>
         </front>
-        <seriesInfo name="Standard" value="ECMA-262"/>
-        <seriesInfo name="Edition" value="16th"/>
-      </reference>
-    
-      <reference anchor="endianness-wikipedia" target="https://en.wikipedia.org/wiki/Endianness">
-        <front>
-          <title>Endianness</title>
-          <author>
-            <organization>Wikipedia contributors</organization>
-          </author>
-          <date year="2026" month="April"/>
-        </front>
-        <seriesInfo name="Encyclopedia" value="Wikipedia, The Free Encyclopedia"/>
+        <seriesInfo name="ISBN" value="978-0321455369"/>
+        <seriesInfo name="Publisher" value="Addison-Wesley"/>
       </reference>
 
       <reference anchor="decimal-conversion-cpp" target="https://en.cppreference.com/w/cpp/types/numeric_limits/max_digits10">
@@ -169,7 +169,7 @@
         <seriesInfo name="Encyclopedia" value="Wikipedia, The Free Encyclopedia"/>
       </reference>
 
-      <reference anchor="ecmascript-2025" target="https://tc39.es/ecma262/">
+      <reference anchor="ecma-script-2025" target="https://tc39.es/ecma262/">
         <front>
           <title>ECMAScript 2025 Language Specification</title>
           <author>
@@ -179,6 +179,28 @@
         </front>
         <seriesInfo name="Standard" value="ECMA-262"/>
         <seriesInfo name="Edition" value="16th"/>
+      </reference>
+
+      <reference anchor="ejcn-extensable-json-classification-notation" target="https://github.com/adligo/ejcn.adligo.org">
+        <front>
+          <title>Extensible JSON Classification Notation (EJCN)</title>
+          <author>
+            <organization>Adligo</organization>
+          </author>
+          <date year="2026"/>
+        </front>
+        <refcontent>GitHub repository</refcontent>
+      </reference>
+
+      <reference anchor="endianness-wikipedia" target="https://en.wikipedia.org/wiki/Endianness">
+        <front>
+          <title>Endianness</title>
+          <author>
+            <organization>Wikipedia contributors</organization>
+          </author>
+          <date year="2026" month="April"/>
+        </front>
+        <seriesInfo name="Encyclopedia" value="Wikipedia, The Free Encyclopedia"/>
       </reference>
 
       <reference anchor="fractions-wikipedia" target="https://en.wikipedia.org/wiki/Fraction">
@@ -213,6 +235,26 @@
           <date day="16" month="December" year="2025"/>
         </front>
         <seriesInfo name="Website" value="i10X"/>
+      </reference>
+
+      <reference anchor="grammers-chomsky" target="https://doi.org/10.1016/S0019-9958(59)90362-6">
+        <front>
+          <title>On certain formal properties of grammars</title>
+          <author initials="N." surname="Chomsky" fullname="Noam Chomsky"/>
+          <date year="1959" month="June"/>
+        </front>
+        <seriesInfo name="Information and Control" value="Vol. 2, No. 2, pp. 137-167"/>
+        <seriesInfo name="DOI" value="10.1016/S0019-9958(59)90362-6"/>
+      </reference>
+
+      <reference anchor="html" target="https://html.spec.whatwg.org/">
+        <front>
+          <title>HTML Standard</title>
+          <author>
+            <organization>WHATWG</organization>
+          </author>
+        </front>
+        <refcontent>Living Standard</refcontent>
       </reference>
 
       <reference anchor="ieee-754-wikipedia" target="https://en.wikipedia.org/wiki/IEEE_754">
