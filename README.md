@@ -101,7 +101,7 @@ Example;
 <Columns abc col2   "Col 3" treeRef >
 <Row     t   "me"   123     1 >
 <Row     f   "you"  345.3   2 >
-<Row     f   "them"  99.0   3 >
+<Row     f   "them"  99.0   5 >
 ```
 
 
@@ -117,7 +117,7 @@ Example;
 40<Columns abc col2   "Col 3" treeRef >
 34<Row     t   "me"   123     1 >
 34<Row     f   "you"  345.3   2 >
-34<Row     f   "them"  99.0   3 >
+34<Row     f   "them"  99.0   5 >
 ```
 
 # Commentary
