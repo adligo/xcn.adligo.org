@@ -39,9 +39,34 @@ Fully qualified XCN class names must include their respective package names.
 
 ##### Relative XCN Class Name
 
-##### XCN Objects
+### XCN Primitive Objects
 
-XCN Objects MUST NOT contain any data other than an OPTIONAL XCN Class Name.  XCN Objects MUST contain whitespace after the start-object less than '<' character, or the subsequent XCL class name.
+There are four types of XCN Primitive Objects;
+
+##### XCN Field Labels
+
+Field Labels MUST start with a lower-case ASCII-7 / UTF-8 letter.  Field Labels MUST be less than 255 characters long.  Field Labels MUST be comprised of ASCII-7 / UTF-8 letters and numeric characters [i.e. 0-9].  Field Labels SHOULD use [Camel Case](#camel-case).
+
+##### XCN Booleans
+
+Booleans MUST be comprised of one of the the following values {'t','f','true','false'}.
+
+##### XCN Numbers
+
+Numbers MUST be comprised of [Ten10b](#ten10b) text.
+
+##### XCN Strings
+
+Strings MUST start and end with double quotes '"'.  Similar to [JSON](#json-rfc-8259) the double quote MAY be escaped with a backslash, and the backslash MAY be escaped with a backslash.
+
+```
+"\"foo\"" // becomes → 'foo' in memory
+"\\" // becomes → '\' in memory
+```
+
+### XCN Complex Objects
+
+Complex Objects MUST NOT contain any data other than an OPTIONAL XCN Class Name.  XCN Objects MUST contain whitespace after the start-object left parentheses '(' character, or the subsequent XCL class name.  Complex Objects MUST close with a right parentheses ')'.  When Complex Objects contain child Complex Objects they are terminated with a closing tag, similar to [HTML](#html).  Complex Objects MAY be self terminating when the right parentheses is preceded by a slash '/', similar to [XML](#xml-wc3).
 
 Fully qualified XCN class name: <b><i>not_dns.xcn.Object</i></b>
 
@@ -49,18 +74,40 @@ Examples;
 
 ```
 // Without the Object class name
-< >
+( /)
 
 // With the Object relative class name
-<Object >
+(Object /)
 
 // With the Object fully qualified class name
-<not_dns.xcn.Object >
+(not_dns.xcn.Object /)
+
+//
 ```
 
-##### XCN Line Segments
+### XCN Arrays
 
-XCN Line Segments MAY contain simple fields.  XCN Line Segments MUST NOT contain complex fields (i.e. Trees or Tables).  Conceptually, XCN Line Segments extend XCN Objects.
+Arrays are extensions of [Complex Objects](#xcn-complex-objects) which contain a pair of square brackets before the self terminating slash and right parentheses.  Inside of the square brackets '[]', XCN Objects MAY be included.  XCN Arrays SHOULD be narrowed to Primitive and Complex.
+
+##### Primitive Arrays
+
+Primitive Arrays are a restriction of Arrays which MUST ONLY contain [Primitive Objects](#xcn-primitive-objects) or other Primitive Arrays.
+
+```
+// Example Primitive Array
+(Array t 123 "abc" a/)
+
+// Example Primitive Array of Primitive Arrays
+(Array (Array t 123 /) (Array "def" b/)/)
+```
+
+##### Complex Arrays
+
+Inside of the square brackets '[]', [Primitive Objects](#xcn-primitive-objects) or Complex Objects](#xcn-complex-objects) MAY be included.
+
+### XCN Line Segments
+
+Line Segments MUST exist on a single line.  Line Segments MAY contain fields which MUST be [Primitive Objects](#xcn-primitive-objects) or [Primitive Arrays](#primitive-arrays).  XCN Line Segments MUST NOT contain fields comprised of [Complex Objects](#xcn-complex-objects).  XCN Line Segments extend from XCN Objects.
 
 Fully qualified XCN class name: <b><i>not_dns.xcn.LineSegment</i></b>
 
@@ -68,13 +115,13 @@ Examples;
 
 ```
 // Without the LineSegments class name
-< foo="bar">
+( foo="bar"/)
 
 // With the LineSegment relative class name
-<LineSegment bar=123>
+(LineSegment bar=123/)
 
 // With the Object fully qualified class name
-<not_dns.xcn.LineSegment >
+(not_dns.xcn.LineSegment /)
 ```
 
 ##### XCN Trees
@@ -83,25 +130,30 @@ XCN Trees MAY contain simple fields and complex fields (i.e. other XCN Trees and
 
 Fully qualified XCN class name: <b><i>not_dns.xcn.Tree</i></b>
 
+##### XCN Tree Fields
+
+[Complex Objects](#xcn-complex-objects) MAY contain one or more fields.  Fields MUST be comprised of a [Field Label](#xcn-field-labels) and an assigned field value.  Values are assigned to [Field Labels](#xcn-field-labels) with a equals symbol.  Field values MAY be other [Complex Objects](#xcn-complex-objects) or [Primitive Objects](#xcn-primitive-objects).  
+
 Examples;
 
 ```
 // Without the Tree class names
-< foo=< car="bar">>
+( foo=( car="bar"/)/)
 
 // With the Tree relative class names
-<Tree bar=<Tree car="foo">>
+(Tree bar=(Tree car="foo"/)/)
 
 // With the Tree fully qualified class names
-<not_dns.xcn.Tree bar=<not_dns.xcn.Tree car="foo">>
+(not_dns.xcn.Tree bar=(not_dns.xcn.Tree car="foo"/)/)
 
 // Tree with internal table
-< foo=
-<Table rows=2 >
-<Columns[ mo car ]>
-<Row[ "feb" 3 ]>
-<Row[ "mar" 36 ]>
->
+( foo=
+(Table rows=2 )
+(Columns[ mo car ]/)
+(Row[ "feb" 3 ]/)
+(Row[ "mar" 36 ]/)
+(/Table)
+/)
 
 ```
 
@@ -112,11 +164,12 @@ XCN Tables MUST NOT contain simple fields or complex fields (i.e. other XCN Tree
 Example;
 
 ```
-<Table id=3 rows=3 >
-<Columns[ abc col2   "Col 3" treeRef ]>
-<Row[     t   "me"   123     1 ]>
-<Row[     f   "you"  345.3   2 ]>
-<Row[     f   "them"  99.0   5 ]>
+(Table id=3 rows=3 )
+(Columns[ abc col2   "Col 3" treeRef ]/)
+(Row[     t   "me"   123     1 ]/)
+(Row[     f   "you"  345.3   2 ]/)
+(Row[     f   "them"  99.0   5 ]/)
+(/Table)
 ```
 
 
@@ -128,16 +181,19 @@ This was changed from the original brainstorming style in order to allow the opt
 Example;
 
 ```
-23<Table id=3 rows=3 >
-42<Columns[ abc col2   "Col 3" treeRef ]>
-36<Row[     t   "me"   123     1 ]>
-36<Row[     f   "you"  345.3   2 ]>
-36<Row[     f   "them"  99.0   5 ]>
+23(Table id=3 )
+43(Columns[ abc col2   "Col 3" treeRef ]/)
+37(Row[     t   "me"   123     1 ]/)
+37(Row[     f   "you"  345.3   2 ]/)
+37(Row[     f   "them"  99.0   5 ]/)
+11(/Table)
 ```
 
 # Commentary
 
 I was really hoping to leverage JSON in EJCN to do this kind of thing.  I feel like I'm re-inventing the wheel.  I think this sort of thing has been going on since well before I was born.
+
+2026-04-21 Added XML/HTML style self closing tag, to distinguish between tags like Tables that SHOULD have closure with a ending tag.  Switched to a more LISP style syntax to make XCN look much different from XML.
 
 Finally, I recommend you read this document at least twice to get the gist of it.
 
@@ -192,6 +248,8 @@ Oracle. "Class BigDecimal." *Java Platform, Standard Edition & Java Development 
 ##### Binary Number Systems Wikipedia
 
 Wikipedia contributors. "Binary number." *Wikipedia, The Free Encyclopedia*. Accessed April 5, 2026. <https://en.wikipedia.org/wiki/Binary_number>.
+
+##### Camel Case
 
 ##### Compart
 
@@ -288,6 +346,10 @@ Morgan, S. "Modern Western Numeral System." In *Text Encoded Base 64 Numbers (Te
 ##### Positional Number Systems Wikipedia
 
 Wikipedia contributors. "Positional notation." *Wikipedia, The Free Encyclopedia*. Accessed April 5, 2026. <https://en.wikipedia.org/wiki/Positional_notation>.
+
+##### Ten10b
+
+TODO
 
 ##### Ten64
 
