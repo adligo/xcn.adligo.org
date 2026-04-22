@@ -98,9 +98,9 @@ Examples;
 // Tree with internal table
 < foo=
 <Table rows=2 >
-<Columns mo car >
-<Row "feb" 3 >
-<Row "mar" 36 >
+<Columns[ mo car ]>
+<Row[ "feb" 3 ]>
+<Row[ "mar" 36 ]>
 >
 
 ```
@@ -113,10 +113,10 @@ Example;
 
 ```
 <Table id=3 rows=3 >
-<Columns abc col2   "Col 3" treeRef >
-<Row     t   "me"   123     1 >
-<Row     f   "you"  345.3   2 >
-<Row     f   "them"  99.0   5 >
+<Columns[ abc col2   "Col 3" treeRef ]>
+<Row[     t   "me"   123     1 ]>
+<Row[     f   "you"  345.3   2 ]>
+<Row[     f   "them"  99.0   5 ]>
 ```
 
 
@@ -129,10 +129,10 @@ Example;
 
 ```
 23<Table id=3 rows=3 >
-40<Columns abc col2   "Col 3" treeRef >
-34<Row     t   "me"   123     1 >
-34<Row     f   "you"  345.3   2 >
-34<Row     f   "them"  99.0   5 >
+42<Columns[ abc col2   "Col 3" treeRef ]>
+36<Row[     t   "me"   123     1 ]>
+36<Row[     f   "you"  345.3   2 ]>
+36<Row[     f   "them"  99.0   5 ]>
 ```
 
 # Commentary
