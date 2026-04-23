@@ -2,7 +2,7 @@
 
 # Abstract
 
-XCN is a binary exchange notation system that relies heavily on [UTF-8](#utf-8-rfc-3629) text-based data.  It is largely a derivative of [EJCN (eXtensable JSON Classification Notation)](#ejcn-extensable-json-classification-notation), [XML](#xml-wc3), [JSON](#json-rfc-8259), and their predecessors, including [HTML](#html) and the [Apache HTTP Server configuration files](#apache-http-server-configuration-files).  Unlike [JSON](#ejcn-extensable-json-classification-notation) and [XML](#xml-wc3), which are context-free grammars XCN is a hybrid context-sensitive and [context-free grammar](#context-free-grammers).  In addition, XCN's goals were to improve upon JSON (the modern de-facto data interchange standard) by adding the following improvements;
+XCN is a binary exchange notation system that relies heavily on [UTF-8](#utf-8-rfc-3629) text-based data.  It is largely a derivative of [EJCN (Extensable JSON Classification Notation)](#ejcn-extensable-json-classification-notation), [XML](#xml-wc3), [JSON](#json-rfc-8259), and their predecessors, including [HTML](#html) and the [Apache HTTP Server configuration files](#apache-http-server-configuration-files).  Unlike [JSON](#ejcn-extensable-json-classification-notation) and [XML](#xml-wc3), which are [context-free grammars](#context-free-grammers) XCN is a hybrid context-sensitive and [context-free grammar](#context-free-grammers).  In addition, XCN's goals were to improve upon JSON (the modern de-facto data interchange standard) by adding the following improvements;
 
 - pure binary data
 - comments
@@ -13,7 +13,7 @@ Finally, XCN also attempts to improve upon [Parquet](#parquet) and other [column
 
 # Introduction
 
-In order to keep the mixing pot of features straight in XCN in as simple a manner as possible, there are two major structures involved. First, the super-structure which was originally envisioned by EJCN consists of a recursive header, body format.  The super-structure is context-sensitive. The super-structure is recursive because the body may contain one or more super-structures.  When one or more super structures exist inside of a super-structure body, this is known as a super-structure-sequence.  Second the XCN grammar-structure is used.  The XTN grammar structure is context-free.
+In order to keep the mixing pot of features straight in XCN in as simple a manner as possible, there are two major structures involved. First, the super-structure which was originally envisioned by EJCN consists of a recursive header, body format.  The super-structure is context-sensitive. The super-structure is recursive because the body may contain one or more super-structures.  When one or more super structures exist inside of a super-structure body, this is known as a super-structure-sequence.  Second the XCN grammar-structure is used.  The XCN grammar structure is [context-free](#context-free-grammers).
 
 ## The Super-Structure
 
