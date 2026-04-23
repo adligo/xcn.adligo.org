@@ -432,6 +432,23 @@
         <seriesInfo name="Medium" value=""/>
       </reference>
 
+      <reference anchor="ten10b" target="https://github.com/adligo/ten10b_v1.adligo.org">
+        <front>
+          <title>Text Encoded Base 10 Numbers (Ten10b) Version 1</title>
+          <author>
+            <organization>Adligo</organization>
+          </author>
+          <date year="2026"/>
+          <abstract>
+            <t>
+              Ten10b is a positional number system designed to be encoded in UTF-8 text, 
+              codifying nine types of numbers for serialization across the internet.
+            </t>
+          </abstract>
+        </front>
+      </reference>
+
+
       <reference anchor="ten64" target="https://www.ietf.org/archive/id/draft-morgan-ten64-00.html">
         <front>
           <title>Text Encoded Base 64 Numbers (Ten64)</title>

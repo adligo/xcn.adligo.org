@@ -392,7 +392,7 @@ DataWithSantosh. (2024, June 11). *Row-Based Storage vs Column-Based Storage: A 
 
 ##### Ten10b
 
-TODO
+Adligo. "adligo/ten10b_v1.adligo.org: Text Encoded Base 10 Numbers (Ten10b) Version 1." GitHub. Accessed April 22, 2026. https://github.com/adligo/ten10b_v1.adligo.org.
 
 ##### Ten64
 
