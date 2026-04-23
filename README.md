@@ -200,9 +200,9 @@ Example;
 
 # File Scan Optimizations
 
-XCN data segments MAY be prefixed by one or more numbers separated by commas.  These numbers MAY be comprised of [Ten10B Integers](#ten10b) or [Ten64 Integers](#ten64).  Note that [Ten64 Integers](#ten64) are the most optimal, while [Ten10B Integers](#ten10b) split the difference between optimality and human readability.  The first number in the OPTIONAL sequence of numbers identifies the number of bytes in the data segment.  In table-style data structures, this identifies the number of bytes the row.
+XCN data segments MAY be prefixed by one or more numbers separated by commas.  These numbers MUST be comprised of [Ten10B Integers](#ten10b) or [Ten64 Integers](#ten64).  Note that [Ten64 Integers](#ten64) are the most optimal, while [Ten10B Integers](#ten10b) split the difference between optimality and human readability.  The first number in the OPTIONAL sequence of numbers identifies the number of bytes in the data segment.  In table-style data structures, this identifies the number of bytes the row.
 
-Additional integers may be added, separated by a comma, in order to identify bytes of interest.  For example, the primary key and identifier of a table may be a composite key with two column values.
+Additional OPTIONAL integers may be added, separated by a comma, in order to identify bytes of interest.  For example, the primary key and identifier of a table may be a composite key with two column values (keyCol1 and keyCol2).
 
 ```
 23(Table id=3 )
@@ -221,7 +221,7 @@ TODO asymptotic analysis of writing and reading data
 
 ...
 
-When using XCN, we are targeting O(log log n) seek time for optimized table formats, we believe this will be slightly better than the big O(log n) seek time found in Column Storage Formats [Row vs Column Formats](#row-vs-column-formats).
+When using XCN, we are targeting O(log log n) seek time for optimized table formats, we believe this will be slightly better than the very rough guess of O(log n) seek time found in Column Storage Formats [Row vs Column Formats](#row-vs-column-formats).
 
 Also note this is somewhat similar to the [Neo4j](#neo4j) binary storage format, due to its use of line feeds indicating end of row data.
 
