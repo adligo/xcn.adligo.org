@@ -2,7 +2,7 @@
 
 # Abstract
 
-XCN is a binary exchange notation system that relies heavily on [UTF-8](#utf-8-rfc-3629) text-based data.  It is largely a derivative of [EJCN (eXtensable JSON Classification Notation)](#ejcn-extensable-json-classification-notation), [XML](#xml-wc3), [JSON](#json-rfc-8259), and their predecessors, including [HTML](#html) and the [Apache HTTP Server configuration files](#apache-http-server-configuration-files).  Unlike [JSON](#ejcn-extensable-json-classification-notation) and [XML](#xml-wc3), which are context-free grammars XCN is a hybrid context-sensitive and [context-free grammars](#context-free-grammers).  In addition, XCN's goals were to improve upon JSON (the modern de-facto data interchange standard) by adding the following improvements;
+XCN is a binary exchange notation system that relies heavily on [UTF-8](#utf-8-rfc-3629) text-based data.  It is largely a derivative of [EJCN (eXtensable JSON Classification Notation)](#ejcn-extensable-json-classification-notation), [XML](#xml-wc3), [JSON](#json-rfc-8259), and their predecessors, including [HTML](#html) and the [Apache HTTP Server configuration files](#apache-http-server-configuration-files).  Unlike [JSON](#ejcn-extensable-json-classification-notation) and [XML](#xml-wc3), which are context-free grammars XCN is a hybrid context-sensitive and [context-free grammar](#context-free-grammers).  In addition, XCN's goals were to improve upon JSON (the modern de-facto data interchange standard) by adding the following improvements;
 
 - pure binary data
 - comments
