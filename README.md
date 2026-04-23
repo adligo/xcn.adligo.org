@@ -2,7 +2,7 @@
 
 # Abstract
 
-XCN is a binary exchange notation system that relies heavily on [UTF-8](#utf-8-rfc-3629) text-based data.  It is largely a derivative of [EJCN (eXtensable JSON Classification Notation)](#ejcn-extensable-json-classification-notation), [XML](#xml-wc3), [JSON](#json-rfc-8259), and their predecessors, including [HTML](#html) and the [Apache HTTP Server configuration files](#apache-http-server-configuration-files).  Unlike [JSON](#ejcn-extensable-json-classification-notation) and [XML](#xml-wc3), which are context-free grammars XCN is a hybrid context-sensitive and context-free grammar.  In addition, XCN's goals were to improve upon JSON (the modern de-facto data interchange standard) by adding the following improvements;
+XCN is a binary exchange notation system that relies heavily on [UTF-8](#utf-8-rfc-3629) text-based data.  It is largely a derivative of [EJCN (eXtensable JSON Classification Notation)](#ejcn-extensable-json-classification-notation), [XML](#xml-wc3), [JSON](#json-rfc-8259), and their predecessors, including [HTML](#html) and the [Apache HTTP Server configuration files](#apache-http-server-configuration-files).  Unlike [JSON](#ejcn-extensable-json-classification-notation) and [XML](#xml-wc3), which are context-free grammars XCN is a hybrid context-sensitive and [context-free grammars](#context-free-grammers).  In addition, XCN's goals were to improve upon JSON (the modern de-facto data interchange standard) by adding the following improvements;
 
 - pure binary data
 - comments
@@ -45,7 +45,7 @@ There are four types of XCN Primitive Objects;
 
 ##### XCN Field Labels
 
-Field Labels MUST start with a lower-case ASCII-7 / UTF-8 letter.  Field Labels MUST be less than 255 characters long.  Field Labels MUST be comprised of ASCII-7 / UTF-8 letters and numeric characters [i.e. 0-9].  Field Labels SHOULD use [Camel Case](#camel-case).
+Field Labels MUST start with a lower-case ASCII-7 / UTF-8 letter.  Field Labels MUST be less than 255 characters long.  Field Labels MUST be comprised of ASCII-7 / UTF-8 letters and numeric characters {i.e. 0-9}.  Field Labels SHOULD use [Camel Case](#camel-case).
 
 ##### XCN Booleans
 
@@ -87,7 +87,7 @@ Examples;
 
 ### XCN Arrays
 
-Arrays are extensions of [Complex Objects](#xcn-complex-objects) which contain a pair of square brackets before the self terminating slash and right parentheses.  Inside of the square brackets '[]', XCN Objects MAY be included.  XCN Arrays SHOULD be narrowed to Primitive and Complex.
+Arrays are extensions of [Complex Objects](#xcn-complex-objects) which contain a pair of square brackets before the self terminating slash and right parentheses.  Inside of the square brackets '\[]', XCN Objects MAY be included.  XCN Arrays SHOULD be narrowed to Primitive and Complex.
 
 ##### Primitive Arrays
 
@@ -103,7 +103,7 @@ Primitive Arrays are a restriction of Arrays which MUST ONLY contain [Primitive 
 
 ##### Complex Arrays
 
-Inside of the square brackets '[]', [Primitive Objects](#xcn-primitive-objects) or Complex Objects](#xcn-complex-objects) MAY be included.
+Inside of the square brackets '\[]', [Primitive Objects](#xcn-primitive-objects) or [Complex Objects](#xcn-complex-objects) MAY be included.
 
 ### XCN Line Segments
 
@@ -189,6 +189,33 @@ Example;
 11(/Table)
 ```
 
+# File Scan Optimizations
+
+XCN data segments MAY be prefixed by one or more numbers separated by commas.  These numbers MAY be comprised of [Ten10B Integers](#ten10b) or [Ten64 Integers](#ten64).  Note that [Ten64 Integers](#ten64) are the most optimal, while [Ten10B Integers](#ten10b) split the difference between optimality and human readability.  The first number in the OPTIONAL sequence of numbers identifies the number of bytes in the data segment.  In table-style data structures, this identifies the number of bytes the row.
+
+Additional integers may be added, separated by a comma, in order to identify bytes of interest.  For example, the primary key and identifier of a table may be a composite key with two column values.
+
+```
+23(Table id=3 )
+30([ keyCol1 keyCol2 name ]/)
+29,3,7([ 123 "xyz" "John"]/)
+27,3,6([ 45 "n" "Sarah"]/)
+25,3,5([ 7 "c" "Jane"]/)
+11(/Table)
+```
+
+In the above example on line three, which starts with 29.  There are 29 bytes in the line.  The 'keyCol1' ID '123' starts at byte 3 (note the offset is zero-based, from the starting left parentheses).  The 'keyCol2' ID "xyz" starts at byte 7.  
+
+Note that this kind of optimization significantly slows down writing of data but significantly speeds up reading of data.
+
+TODO asymptotic analysis of writing and reading data
+
+...
+
+When using XCN, we are targeting O(log log n) seek time for optimized table formats, we believe this will be slightly better than the big O(log n) seek time found in Column Storage Formats [Row vs Column Formats](#row-vs-column-formats).
+
+Also note this is somewhat similar to the [Neo4j](#neo4j) binary storage format, due to its use of line feeds indicating end of row data.
+
 # Commentary
 
 I was really hoping to leverage JSON in EJCN to do this kind of thing.  I feel like I'm re-inventing the wheel.  I think this sort of thing has been going on since well before I was born.
@@ -255,7 +282,7 @@ Wikipedia contributors. "Binary number." *Wikipedia, The Free Encyclopedia*. Acc
 
 Compart. "Unicode Character “̅” (U+0305)." *Compart*. Accessed April 5, 2026. <https://www.compart.com/en/unicode/U+0305>.
 
-##### Context Sensitve Grammers Automata Theory
+##### Context Free Grammers
 
 John E. Hopcroft, Rajeev Motwani, and Jeffrey D. Ullman, *Introduction to Automata Theory, Languages, and Computation*, 3rd ed. (Boston: Addison-Wesley, 2006).
 
@@ -343,9 +370,17 @@ Wikipedia contributors. "Wrapping (text)." *Wikipedia, The Free Encyclopedia*. A
 
 Morgan, S. "Modern Western Numeral System." In *Text Encoded Base 64 Numbers (Ten64)*. Internet-Draft draft-morgan-ten64-00, April 1, 2026. <https://www.ietf.org/archive/id/draft-morgan-ten64-00.html#modern-western-numeral-system>.
 
+##### Neo4j
+
+Neo4j. (n.d.). *neo4j/neo4j: Graphs for Everyone* [Source code]. GitHub. Retrieved April 22, 2026, from https://github.com/neo4j/neo4j
+
 ##### Positional Number Systems Wikipedia
 
 Wikipedia contributors. "Positional notation." *Wikipedia, The Free Encyclopedia*. Accessed April 5, 2026. <https://en.wikipedia.org/wiki/Positional_notation>.
+
+##### Row vs Column Formats
+
+DataWithSantosh. (2024, June 11). *Row-Based Storage vs Column-Based Storage: A Beginner's Guide*. Medium. Retrieved April 22, 2026, from https://medium.com/@DataWithSantosh/row-based-storage-vs-column-based-storage-a-beginners-guide-6e91dbadb181
 
 ##### Ten10b
 

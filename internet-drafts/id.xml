@@ -393,6 +393,14 @@
         <seriesInfo name="Internet-Draft" value="draft-morgan-ten64-00"/>
       </reference>
 
+      <reference anchor="neo4j" target="https://github.com/neo4j/neo4j">
+        <front>
+          <title>neo4j/neo4j: Graphs for Everyone</title>
+          <author fullname="Neo4j"/>
+          <date/>
+        </front>
+        <seriesInfo name="GitHub Repository" value=""/>
+      </reference>
 
       <reference anchor="positional-number-systems-wikipedia" target="https://en.wikipedia.org/wiki/Numeral_system#Positional_systems_in_detail">
         <front>
@@ -403,6 +411,15 @@
           <date year="2026" month="April"/>
         </front>
         <seriesInfo name="Encyclopedia" value="Wikipedia, The Free Encyclopedia"/>
+      </reference>
+
+      <reference anchor="row-vs-column-formats" target="https://medium.com/@DataWithSantosh/row-based-storage-vs-column-based-storage-a-beginners-guide-6e91dbadb181">
+        <front>
+          <title>Row-Based Storage vs Column-Based Storage: A Beginner's Guide</title>
+          <author fullname="DataWithSantosh"/>
+          <date month="June" day="11" year="2024"/>
+        </front>
+        <seriesInfo name="Medium" value=""/>
       </reference>
 
       <reference anchor="ten64" target="https://www.ietf.org/archive/id/draft-morgan-ten64-00.html">
